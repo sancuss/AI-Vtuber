@@ -2,7 +2,7 @@ import json
 
 def load_config():
     try:
-        with open("config.json", "r") as json_file:
+        with open("Configs/config.json", "r") as json_file:
             data = json.load(json_file)
         return data
     except Exception as e:

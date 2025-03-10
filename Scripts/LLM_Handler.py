@@ -1,6 +1,6 @@
 import groq
 import ollama
-from config_loader import GROQ, OLLAMA
+from Scripts.Config_Loader import GROQ, OLLAMA
 
 user_chat_history = {}
 
@@ -25,8 +25,9 @@ def llm_groq(username, message):
     )
     response_text = ""
     for chunk in response:
-        if chunk.choices and chunk.choices[0].delta.content:
-            response_text += chunk.choices[0].delta.content
+        if chunk.choices and chunk.choices[0].delta.get("content"):
+            response_text += chunk.choices[0].delta["content"]
+            
     user_chat_history[username].append({"role": "assistant", "content": response_text})
     return response_text
 

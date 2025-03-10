@@ -1,9 +1,11 @@
 import time
 import asyncio
-from Chat_reader import read_chat_youtube, read_chat_twitch
-from tts_engine import init_tts
+from Scripts.Chat_Reader import read_chat_youtube,read_chat_twitch
+from Scripts.TTS_Engine import init_tts
+from Scripts.Config_Loader import load_config
 
 def main():
+    load_config()
     init_tts()
     print("\n\nRunning!\n\n")
     while True:
