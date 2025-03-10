@@ -1,0 +1,14 @@
+pytchat
+openai
+pydub
+pyttsx3
+simpleaudio
+pyaudio
+ffmpeg
+requests
+sounddevice
+numpy
+groq
+websockets
+ollama
+gradio_client
