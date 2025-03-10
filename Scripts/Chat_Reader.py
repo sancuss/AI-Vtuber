@@ -1,0 +1,40 @@
+import pytchat
+import time
+import websockets
+import asyncio
+import re
+from config_loader import YOUTUBE, TWITCH
+from tts_engine import tts_controller
+from llm_handler import llm_groq
+
+def read_chat_youtube():
+    chat = pytchat.create(video_id=YOUTUBE.VIDEO_ID)
+    while chat.is_alive():
+        for c in chat.get().sync_items():
+            print(f"\n{c.datetime} [{c.author.name}]- {c.message}\n")
+            response = llm_groq(c.author.name, c.message)
+            print(c.author.name + " " + response)
+            tts_controller(c.author.name + " " + response)
+            time.sleep(1)
+
+async def read_chat_twitch():
+    async with websockets.connect(TWITCH.TWITCH_WS_URL) as websocket:
+        await websocket.send(f"PASS {TWITCH.OAUTH_TOKEN}")
+        await websocket.send(f"NICK {TWITCH.USER}")
+        await websocket.send(f"JOIN #{TWITCH.CHANNEL}")
+        print(f"Connected to Twitch chat: #{TWITCH.CHANNEL}")
+        while True:
+            try:
+                message = await websocket.recv()
+                match = re.search(r":(\w+)!\w+@\w+\.tmi\.twitch\.tv PRIVMSG #\w+ :(.+)", message)
+                if match:
+                    username = match.group(1)
+                    chat_message = match.group(2)
+                    print(f"\n{username}: {chat_message}\n")
+                    response = llm_groq(username, chat_message)
+                    print(f"\nAI Response: {username + " " + response}")
+                    tts_controller(username + " " + response)
+                    time.sleep(1)
+            except websockets.exceptions.ConnectionClosed:
+                print("Disconnected, reconnecting...")
+                break

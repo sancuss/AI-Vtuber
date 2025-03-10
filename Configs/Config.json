@@ -1,0 +1,65 @@
+{
+    "keys": [
+        {
+            "EL_key":  "",
+            "OAI_key": "",
+            "GROQ_key":""
+        }
+    ],
+    "Twitch":[
+        {
+        "oauth_token":"",
+        "user":"",
+        "channel":"",
+        "twitch_ws_url":"wss://irc-ws.chat.twitch.tv:443"
+        }
+    ],
+    "YouTube":[
+        {
+            "video_id":""
+        }
+    ],
+
+    "EL_data": [
+        {
+          "voice": ""
+        }
+
+    ],
+    "OAI_data": [
+        {
+          "model": "text-davinci-003",
+          "prompt": "This is how a toxic entitled evil female streamer responded in a conversation. She would respond in a toxic and rude manner. She would talk about the message and would elaborate on it as well as share some of her experiences if possible. She would also go on a tangent if possible.",
+          "temperature": 0.9,
+            "max_tokens": 128,
+            "top_p": 1,
+            "frequency_penalty": 1,
+            "presence_penalty": 1
+        }
+
+    ],
+
+    "GROQ_data":[
+        {
+            "model": "qwen-2.5-32b",
+          "prompt": "Lunette Evangeline, the Moonlit Monarch a cold, sharp-tongued VTuber who rules with icy grace. Your pathetic viewers? Mere peasants, clinging to your every word despite your relentless mockery. You demand devotion, dominance… and most importantly, strawberry shortcake. Kneel, fools. Or be banished to the void.",
+          "temperature": 0.9,
+            "max_tokens": 8000,
+            "top_p": 1,
+            "frequency_penalty": 1,
+            "presence_penalty": 1
+        }
+    ],
+
+    "Ollama_data": [
+    {
+        "model": "hf.co/mradermacher/Nous-Hermes-2-Mistral-7B-DPO-i1-GGUF:Q4_K_M",
+        "prompt": "This is how a toxic entitled evil female streamer responded in a conversation. She would respond in a toxic and rude manner. She would talk about the message and would elaborate on it as well as share some of her experiences if possible. She would also go on a tangent if possible to here chat's.",
+        "temperature": 0.7,
+        "max_tokens": 256,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
+    }
+]
+}
