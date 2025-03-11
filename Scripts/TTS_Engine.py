@@ -28,7 +28,7 @@ def pyttsx3_tts(message):
 def melotts_tts(message):
     result = gr_client.predict(
         text=message,
-        speaker="EN-US",
+        speaker="EN-BR",
         speed=1,
         language="EN",
         api_name="/synthesize"
