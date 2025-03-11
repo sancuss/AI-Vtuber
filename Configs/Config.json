@@ -3,10 +3,11 @@
         {
             "EL_key":  "",
             "OAI_key": "",
-            "GROQ_key":"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",
-            "OPENROUTER_key":"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"
+            "GROQ_key":"",
+            "OPENROUTER_key":""
         }
     ],
+    
     "Twitch":[
         {
         "oauth_token":"",
