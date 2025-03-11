@@ -4,7 +4,7 @@ import subprocess
 import time
 from gradio_client import Client
 
-gr_client = Client("http://localhost:8888/")
+gr_client = Client("mrfakename/MeloTTS")
 
 def init_tts():
     global engine
