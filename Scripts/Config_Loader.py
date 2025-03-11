@@ -2,7 +2,7 @@ import json
 
 def load_config():
     try:
-        with open("config.json", "r") as json_file:
+        with open("Configs/config.json", "r") as json_file:
             data = json.load(json_file)
         return data
     except Exception as e:
@@ -53,3 +53,13 @@ class OLLAMA:
     top_p = data["Ollama_data"][0]["top_p"]
     frequency_penalty = data["Ollama_data"][0]["frequency_penalty"]
     presence_penalty = data["Ollama_data"][0]["presence_penalty"]
+
+class OPENROUTER:
+    key = data["keys"][0]["OPENROUTER_key"]
+    model = data["OPENROUTER_data"][0]["model"]
+    prompt = data["OPENROUTER_data"][0]["prompt"]
+    temperature = data["OPENROUTER_data"][0]["temperature"]
+    max_tokens = data["OPENROUTER_data"][0]["max_tokens"]
+    top_p = data["OPENROUTER_data"][0]["top_p"]
+    frequency_penalty = data["OPENROUTER_data"][0]["frequency_penalty"]
+    presence_penalty = data["OPENROUTER_data"][0]["presence_penalty"]

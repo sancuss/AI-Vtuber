@@ -6,14 +6,14 @@ from gradio_client import Client
 
 gr_client = Client("http://localhost:8888/")
 
-def init_tts(tts_type="pyttsx3"):
+def init_tts():
     global engine
-    if tts_type == "pyttsx3":
-        engine = pyttsx3.init()
-        engine.setProperty('rate', 180)
-        engine.setProperty('volume', 1)
-        voice = engine.getProperty('voices')
-        engine.setProperty('voice', voice[1].id)
+
+    engine = pyttsx3.init()
+    engine.setProperty('rate', 180)
+    engine.setProperty('volume', 1)
+    voice = engine.getProperty('voices')
+    engine.setProperty('voice', voice[1].id)
 
 def tts_controller(message, tts_type="pyttsx3"):
     if tts_type == "pyttsx3":
@@ -28,7 +28,7 @@ def pyttsx3_tts(message):
 def melotts_tts(message):
     result = gr_client.predict(
         text=message,
-        speaker="EN-US",
+        speaker="EN-BR",
         speed=1,
         language="EN",
         api_name="/synthesize"
